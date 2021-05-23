@@ -1,5 +1,6 @@
 # ELK-Stack
-ELk deployment as a docker container, and Filebeat and Metricbeat Deployments
+ 
+Deployment of an ELk-stack docker-container server to monitor a load-balanced instances of DVWA via Filebeat and Metricbeat.
 
 ## Automated ELK Stack Deployment
 
@@ -80,7 +81,16 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- A provisioner is a software application used in IaC setups for making automated configuration changes to computers.
+- Provisioners focus on bringing a server to a certain state of operation.
+- Once the desired state of a server is documented with code, that code can be run on one server, 100 servers or 10,000 servers within a few minutes. Provisioners can do everything from install software to change configuration text files, and more.
+- The changes that a provisioner makes are created using text files, usually written in YAML or JSON.
+- When a particular piece of the infrastructure is needed, we can run the code that defines that thing and it will be up and running within a few minutes.
+- IaC allows us to clearly build in security protocols from the ground up. If a server is found to be vulnerable, it's easy to change the code that created the server and build in a fix.
+- When we create code that contains the configuration of a server, that code can be version controlled and easily audited.
+- Rather than having to back up the server and its settings, servers can send logs to a central database. This way, we only need to back up small text files containing the code that defines the servers.
+- Code configuration changes can be deployed or reversed as needed. If an update causes a problem, we can use version control to reverse the code to its previous state, and redeploy.
+- In order to see what changes are made to a server, we just need to look at what changes the code makes. Often this code is written in a very easy-to-read language, so we only need minimal documentation to understand any given configuration.
 
 The playbook implements the following tasks:
 - Installing docker.io ( the docker engine to run containers) using apt, by updating the pat cache first, foring to using apt-get instead of aptitude, and also checking wether the docker.io is installed prior to instalation
@@ -92,14 +102,16 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.PNG)
+![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+
+- All the Web VMs containing the DVWA with the IP Addresses of 10.0.0.7, 10.0.0.8, 10.0.0.4
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeat collects data about the file system. like The logfile audit output is the only output for auditing. It writes data to the <clustername>_audit.json file in the logs directory.
+- Metricbea tcollects machine metrics, such as uptime.
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
@@ -118,3 +130,8 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+https://raw.githubusercontent.com/farzmehr/ELK-Stack/main/Ansible/filebeat-playbook.yml
+https://raw.githubusercontent.com/farzmehr/ELK-Stack/main/Ansible/filebeat-config.yml
+https://raw.githubusercontent.com/farzmehr/ELK-Stack/main/Ansible/install-elk.yml
+https://raw.githubusercontent.com/farzmehr/ELK-Stack/main/Ansible/metricbeat-config.yml
