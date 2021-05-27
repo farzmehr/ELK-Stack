@@ -154,7 +154,7 @@ The three web servers are added to the `webservers` group, by adding each IP und
 Also, when an Ubuntu host is used, the `ansible_python_interpreter=/usr/bin/python3` must be used for each IP address, as Ubuntu 18.04 does not include `/usr/bin/python3` and most Ansible modules are written in Python.
 The screenshot of `hosts` file after it is configured is shown below.
 
-![web hosts](Images/hosts_webs.png)
+![web hosts](Images/hosts_webs.PNG)
 
 To run the playbook and install DVWAs the following steps are required
 - SSH into the jump-box
@@ -189,7 +189,7 @@ Similar output shown in the screenshot below should be displayed.
     
 - Alternatively, use `http://40.115.66.121/setup.php` on a web browser in the whitelisted machine, where `40.115.66.121` is the public IP address of the DVWAs/load balancer. Screenshot shown below shows the DVWAs are successfully running.
 
-![DVWA web browser](Images/DVWA.png)
+![DVWA web browser](Images/DVWA.PNG)
 
 #### ELK Container on ELK Server
 
@@ -213,7 +213,7 @@ Therefore, the ELK machine added to the ELK group, by adding its IP address unde
 Similar to DVWA installation, when an Ubuntu host is used, the `ansible_python_interpreter=/usr/bin/python3` must be used for each IP address.
 The screenshot of `hosts` file after it is configured is shown below after it is configured.
 
-![hosts](Images/hosts.png)
+![hosts](Images/hosts.PNG)
 
 To run the playbook and install ELK the following steps are required
 - SSH into the jump-box
@@ -247,7 +247,7 @@ Similar output shown in the screenshot below should be displayed.
 - To visit the ELK interface (Kibana) use `http://20.36.45.160:5601/app/kibana#/home?_g=()` on a web browser in the whitelisted machine, where `20.36.45.160` is the public IP address of the ELK server.
 Screenshot shown below shows the ELK is successfully running.
 
-![Kibana web browser](Images/Kibana.png)
+![Kibana web browser](Images/Kibana.PNG)
 
 #### Filebeat and Metricbeat on Web Servers
 
@@ -303,10 +303,10 @@ To install the Filebeat the following steps are required:
 - Edit the [filebeat-config.yml](Ansible/filebeat-config.yml) and replace the IP address of the Kibana and Elastic Search output to the IP address of the ElK server using `nano /etc/ansible/files/filebeat-config.yml`, as shown below.
  
  Elastic search output:
- ![filebeat config search](Images/filebeatConfigSearch.png)
+ ![filebeat config search](Images/filebeatConfigSearch.PNG)
  
  Kibana:
- ![filebeat config Kibana](Images/filebeatConfigKibana.png)
+ ![filebeat config Kibana](Images/filebeatConfigKibana.PNG)
 
 - Run the [filebeat-playbook.yml](Ansible/filebeat-playbook.yml) playbook using
 
@@ -315,11 +315,11 @@ To install the Filebeat the following steps are required:
 - Visit the Kibana again, via `http://20.36.45.160:5601/app/kibana#/home?_g=()` on a web browser in the whitelisted machine, where `20.36.45.160` is the public IP address of the ELK server.
 - Click Add Log Data and Choose System Logs and then Click on the DEB tab under Getting Started, and click check data, the screenshot below should be seen.
 
-![filebeat status web browser](Images/filebeatStatus.png)
+![filebeat status web browser](Images/filebeatStatus.PNG)
 
 - Click on System Log Dashboard and similar output shown in the screenshot below should be displayed.
 
-![filebeat web browser](Images/filebeat.png)
+![filebeat web browser](Images/filebeat.PNG)
 
 ##### Metricbeat installation
 
@@ -350,10 +350,10 @@ To install the Metricbeat the following steps are required:
 - Edit the [Metricbeat-config.yml](Ansible/Metricbeat-config.yml) and replace the IP address of the Kibana and Elastic Search output to the IP address of the ElK server using `nano /etc/ansible/files/Metricbeat-config.yml`, as shown below.
  
  Elastic search output:
- ![Metricbeat config search](Images/MetricbeatConfigSearch.png)
+ ![Metricbeat config search](Images/MetricbeatConfigSearch.PNG)
  
  Kibana:
- ![Metricbeat config Kibana](Images/MetricbeatConfigKibana.png)
+ ![Metricbeat config Kibana](Images/MetricbeatConfigKibana.PNG)
 
 - Run the [Metricbeat-playbook.yml](Ansible/Metricbeat-playbook.yml) playbook using
 
@@ -362,11 +362,11 @@ To install the Metricbeat the following steps are required:
 - Visit the Kibana again, via `http://20.36.45.160:5601/app/kibana#/home?_g=()` on a web browser in the whitelisted machine, where `20.36.45.160` is the public IP address of the ELK server.
 - Click Add Log Data and Choose System Logs and then Click on the DEB tab under Getting Started, and click check data, the screenshot below should be seen.
 
-![Metricbeat status web browser](Images/MetricbeatStatus.png)
+![Metricbeat status web browser](Images/MetricbeatStatus.PNG)
 
 - Click on System Log Dashboard and similar output shown in the screenshot below should be displayed.
 
-![Metricbeat web browser](Images/Metricbeat.png)
+![Metricbeat web browser](Images/Metricbeat.PNG)
 
 
 
