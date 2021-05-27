@@ -302,10 +302,12 @@ To install the Filebeat the following steps are required:
 
 - Edit the [filebeat-config.yml](Ansible/filebeat-config.yml) and replace the IP address of the Kibana and Elastic Search output to the IP address of the ElK server using `nano /etc/ansible/files/filebeat-config.yml`, as shown below.
  
- Elastic search output:
+Elastic search output:
+
  ![filebeat config search](Images/filebeatConfigSearch.PNG)
  
- Kibana:
+Kibana:
+
  ![filebeat config Kibana](Images/filebeatConfigKibana.PNG)
 
 - Run the [filebeat-playbook.yml](Ansible/filebeat-playbook.yml) playbook using
@@ -349,10 +351,12 @@ To install the Metricbeat the following steps are required:
 
 - Edit the [Metricbeat-config.yml](Ansible/Metricbeat-config.yml) and replace the IP address of the Kibana and Elastic Search output to the IP address of the ElK server using `nano /etc/ansible/files/Metricbeat-config.yml`, as shown below.
  
- Elastic search output:
+Elastic search output:
+ 
  ![Metricbeat config search](Images/MetricbeatConfigSearch.PNG)
  
- Kibana:
+Kibana:
+ 
  ![Metricbeat config Kibana](Images/MetricbeatConfigKibana.PNG)
 
 - Run the [Metricbeat-playbook.yml](Ansible/Metricbeat-playbook.yml) playbook using
