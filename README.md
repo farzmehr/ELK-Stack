@@ -364,11 +364,11 @@ Kibana:
    `ansible-playbook /etc/ansible/roles/metricbeat-playbook.Yml`
   
 - Visit the Kibana again, via `http://20.36.45.160:5601/app/kibana#/home?_g=()` on a web browser in the whitelisted machine, where `20.36.45.160` is the public IP address of the ELK server.
-- Click Add Log Data and Choose System Logs and then Click on the DEB tab under Getting Started, and click check data, the screenshot below should be seen.
+- Click Add Metric Data and Choose Docker metrics and then Click on the DEB tab under Getting Started, and click check data, the screenshot below should be seen.
 
 ![Metricbeat status web browser](Images/metricbeatStatus.PNG)
 
-- Click on System Log Dashboard and similar output shown in the screenshot below should be displayed.
+- Click on Docker Metrics Dashboard and similar output shown in the screenshot below should be displayed.
 
 ![Metricbeat web browser](Images/metricbeat.PNG)
 
