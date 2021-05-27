@@ -353,24 +353,24 @@ To install the Metricbeat the following steps are required:
  
 Elastic search output:
  
- ![Metricbeat config search](Images/MetricbeatConfigSearch.PNG)
+ ![Metricbeat config search](Images/metricbeatConfigSearch.PNG)
  
 Kibana:
  
- ![Metricbeat config Kibana](Images/MetricbeatConfigKibana.PNG)
+ ![Metricbeat config Kibana](Images/metricbeatConfigKibana.PNG)
 
 - Run the [Metricbeat-playbook.yml](Ansible/Metricbeat-playbook.yml) playbook using
 
-   `ansible-playbook /etc/ansible/roles/Metricbeat-playbook.Yml`
+   `ansible-playbook /etc/ansible/roles/metricbeat-playbook.Yml`
   
 - Visit the Kibana again, via `http://20.36.45.160:5601/app/kibana#/home?_g=()` on a web browser in the whitelisted machine, where `20.36.45.160` is the public IP address of the ELK server.
 - Click Add Log Data and Choose System Logs and then Click on the DEB tab under Getting Started, and click check data, the screenshot below should be seen.
 
-![Metricbeat status web browser](Images/MetricbeatStatus.PNG)
+![Metricbeat status web browser](Images/metricbeatStatus.PNG)
 
 - Click on System Log Dashboard and similar output shown in the screenshot below should be displayed.
 
-![Metricbeat web browser](Images/Metricbeat.PNG)
+![Metricbeat web browser](Images/metricbeat.PNG)
 
 
 
