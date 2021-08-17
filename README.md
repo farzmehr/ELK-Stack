@@ -1,6 +1,6 @@
 # ELK-Stack Deployment on Microsoft Azure Virtual Network
  
-Deployment of an ELK-stack server on a docker-container to monitor load-balanced instances of the Damn Vulnerable Web Application (DVWA) docker-containers via Filebeat and Metricbeat.
+Deployment of an ELK-stack server on a Docker container to monitor load-balanced instances of the Damn Vulnerable Web Application (DVWA) Docker containers via Filebeat and Metricbeat.
 
 ## Automated ELK Stack Deployment
 
@@ -42,7 +42,7 @@ The main advantage of using a load balancer is to improve the availability aspec
 - assists in the maintenance of the web, by improving the resilience of the web server. When a server needs to be repaired, the load balancer transfers the traffic to other web servers.
 - allows easier application of the changes to a network infrastructure without any disruption to the services provided to users.
 
-Here, three web virtual machines (VMs) each containing a docker engine and a DVWA instance as a container are in the same Azure availability set within the load balancer backend pool.
+Here, three web virtual machines (VMs) each containing a Docker engine and a DVWA instance as a container are in the same Azure availability set within the load balancer backend pool.
 
 A jump-box VM capable of connecting to all the VMs through SSH protocol is used to configure virtual machines. The jump-box provides a clear funnel which the traffic passed through, as a single control point for the infrastructure.
 Both the load balancer and the jump-host machine are behind a firewall (Azure security group) which limits the connection to the whole virtual network.
@@ -101,7 +101,7 @@ Using Ansible as a provisioner and IaC approach are advantageous for the followi
 
 In order to use playbooks, first the Ansible control node (jump-box) needs to be configured.
 
-To Install Ansible on the Jump-box, the docker engine (`docker.io`) needs to be installed using:
+To Install Ansible on the Jump-box, the Docker engine (`docker.io`) needs to be installed using:
 
 `sudo apt install docker.io -y` (for a Debian-based Linux)
 
@@ -138,10 +138,10 @@ And similar output shown in the screenshot below should be displayed.
 [install-dvwa.yml](Ansible/install-dvwa.yml) is the playbook file to install DVWA containers on VMs.
  [install-dvwa.yml](Ansible/install-dvwa.yml) implements the following tasks:
  
-- Installing the docker engine to run containers (`docker.io`) using apt, by first updating the apt cache, then forcing to use apt-get instead of aptitude, and also checking whether the `docker.io` is already installed.
+- Installing the Docker engine to run containers (`docker.io`) using apt, by first updating the apt cache, then forcing to use apt-get instead of aptitude, and also checking whether the `docker.io` is already installed.
 - Installing python package manager (`pyhton3-pip`) using apt, by forcing to use apt-get instead of aptitude, and also checking whether the `pyhton3-pip` is already installed.
-- Installing Python client for docker (docker module) using `pip`. This is required by ansible to manage containers.
-- Downloading and launching the DVWA container developed by cyberxsecurity (`cyberxsecurity/dvwa`) using docker-container.
+- Installing Python client for Docker (Docker module) using `pip`. This is required by ansible to manage containers.
+- Downloading and launching the DVWA container developed by cyberxsecurity (`cyberxsecurity/dvwa`) using Docker container.
 - Setting the DWWA container to launch on every boot.
 - mapping the port 80 on the host to the port 80 on the container
 
@@ -199,8 +199,8 @@ Here, the ELK playbook implements the following tasks:
  
 - Installing the docker engine to run containers (`docker.io`) using apt, by first updating the apt cache, then forcing to use apt-get instead of aptitude, and also checking whether the `docker.io` is already installed.
 - Installing python package manager (`pyhton3-pip`) using apt, by forcing to use apt-get instead of aptitude, and also checking whether the `pyhton3-pip` is already installed.
-- Installing Python client for docker (docker module) using `pip`. This is required by ansible to manage containers.
-- Downloading and launching the version 761 of ELK container developed by sebp (sebp/elk:761) using docker-container.
+- Installing Python client for Docker (Docker module) using `pip`. This is required by ansible to manage containers.
+- Downloading and launching the version 761 of ELK container developed by sebp (sebp/elk:761) using Docker container.
 - Setting the ELK container to start on every boot.
 - mapping the port 5601 on the host to the port 5601 on the container for Kibana.
 - mapping the port 5044 on the host to the port 5044 on the container for Logstash Beats.
@@ -273,7 +273,7 @@ The following Beats are on the web servers:
  
 ##### Filebeat installation
 
-Here, the Beats are installed directly on the web server hosts (not the docker). However, they communicate with the ELK container through the docker.
+Here, the Beats are installed directly on the web server hosts (not the Docker). However, they communicate with the ELK container through the Docker.
 In addition to the playbook file, another file is required to configure each Beat. The file needs to be modified by adding the ELK stack IP address to it, thereby sending the Elastic Search output and the Kibana to the ELK server.  
 
 Here, the Filebeat playbook implements the following tasks:
